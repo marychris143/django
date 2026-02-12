@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Website{% endblock %}</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #fff5f9;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            height: 70px;
+            background: linear-gradient(135deg, #ff4f81, #ff758c);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            position: relative;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.3s ease;
+        }
+
+        /* Hover underline animation */
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 3px;
+            bottom: -6px;
+            left: 0;
+            background-color: white;
+            transition: 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Active link */
+        .nav-links a.active {
+            font-weight: 700;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="logo">🌸 PinkDash</div>
+
+        <div class="nav-links">
+            <a href="{% url 'homepage' %}" 
+               class="{% if request.path == '/' %}active{% endif %}">
+               Home
+            </a>
+
+            <a href="{% url 'about' %}" 
+               class="{% if request.path == '/about/' %}active{% endif %}">
+               About
+            </a>
+
+            <a href="{% url 'contact' %}" 
+               class="{% if request.path == '/contact/' %}active{% endif %}">
+               Contact
+            </a>
+        </div>
+    </div>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

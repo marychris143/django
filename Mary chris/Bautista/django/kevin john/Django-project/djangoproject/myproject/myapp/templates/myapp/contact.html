@@ -1,0 +1,135 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<div class="contact-wrapper">
+
+    <div class="contact-card">
+        <h1>💌 Get In Touch</h1>
+        <p>We’d love to hear from you. Send us a sweet message!</p>
+
+        <form class="contact-form">
+            <div class="input-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message 💖</button>
+        </form>
+    </div>
+
+</div>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff9ecf, #ffc3e6, #ffe6f2);
+    min-height: 100vh;
+}
+
+/* Wrapper */
+.contact-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+/* Card */
+.contact-card {
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.25);
+    text-align: center;
+}
+
+.contact-card h1 {
+    margin-bottom: 10px;
+    color: #ff2e93;
+}
+
+.contact-card p {
+    margin-bottom: 30px;
+    color: #b03078;
+}
+
+/* Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    text-align: left;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: #a1005b;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    font-size: 15px;
+    background: rgba(255,255,255,0.8);
+    transition: 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: #ff2e93;
+    box-shadow: 0 0 10px rgba(255, 46, 147, 0.3);
+    outline: none;
+}
+
+/* Button */
+.submit-btn {
+    padding: 14px;
+    border-radius: 30px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #ff2e93, #ff69b4);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 8px 20px rgba(255, 46, 147, 0.4);
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(255, 46, 147, 0.5);
+}
+
+/* Responsive */
+@media(max-width: 600px) {
+    .contact-card {
+        padding: 25px;
+    }
+}
+</style>
+
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="about-wrapper">
+
+    <div class="about-card">
+        <h1>🎀 ABOUT PENDAGWAPA 🎀</h1>
+        <p>Welcome to PendaGwapa — a place where productivity meets positivity! 💖</p>
+
+        <div class="about-sections">
+
+            <div class="about-section">
+                <h2>Our Mission</h2>
+                <p>We aim to help you stay focused, organized, and motivated while adding a touch of joy to your daily tasks. 🎀</p>
+            </div>
+
+            <div class="about-section">
+                <h2>Our Vision</h2>
+                <p>To create a vibrant, supportive space where every small step you take towards your goals is celebrated. 🌷</p>
+            </div>
+
+            <div class="about-section">
+                <h2>Why Choose Us?</h2>
+                <p>Because we combine functionality with fun! Our pink-themed dashboards and tips inspire you to shine bright every day. ✨</p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff9ecf, #ffc3e6, #ffe6f2);
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Wrapper */
+.about-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+/* Card */
+.about-card {
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 40px 30px;
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.25);
+    text-align: center;
+}
+
+/* Headings */
+.about-card h1 {
+    font-size: 2.5rem;
+    color: #ff2e93;
+    margin-bottom: 15px;
+}
+
+.about-card h2 {
+    font-size: 1.6rem;
+    color: #ff4f81;
+    margin-bottom: 10px;
+}
+
+/* Paragraphs */
+.about-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #b03078;
+    margin-bottom: 25px;
+}
+
+/* Sections */
+.about-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* Responsive */
+@media(max-width: 600px) {
+    .about-card {
+        padding: 25px 20px;
+    }
+
+    .about-card h1 {
+        font-size: 2rem;
+    }
+
+    .about-card h2 {
+        font-size: 1.4rem;
+    }
+
+    .about-card p {
+        font-size: 0.95rem;
+    }
+}
+</style>
+{% endblock %}

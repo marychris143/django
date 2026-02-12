@@ -1,0 +1,68 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="about-container">
+    <div class="about-card">
+        <h1>About Us</h1>
+        <p>Welcome to our website! Here at <strong>My Django Project</strong>, we strive to deliver the best content and tools for our users.</p>
+        <p>Our goal is to make web development simple, modern, and visually appealing. Explore our features, stay updated with the latest posts, and get inspired!</p>
+        <p>Feel free to contact us via the Contact page for any inquiries or feedback.</p>
+    </div>
+</div>
+
+<style>
+/* Container */
+.about-container {
+    max-width: 850px;
+    margin: 50px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* About Card */
+.about-card {
+    background: linear-gradient(145deg, #ffffff, #f9f9f9);
+    border-left: 6px solid #10b981; /* matches navbar active link */
+    border-radius: 15px;
+    padding: 30px 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 30px rgba(0,0,0,0.12);
+}
+
+/* Typography */
+.about-card h1 {
+    font-size: 2rem;
+    color: #1f2937;
+    margin-bottom: 20px;
+}
+
+.about-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #4b5563; /* dark gray */
+    margin-bottom: 15px;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .about-card {
+        padding: 20px 15px;
+    }
+
+    .about-card h1 {
+        font-size: 1.6rem;
+    }
+
+    .about-card p {
+        font-size: 0.95rem;
+    }
+}
+</style>
+{% endblock %}

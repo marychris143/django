@@ -1,0 +1,196 @@
+{% extends "myapp/base.html" %}
+
+{% block title %}API Feed{% endblock %}
+
+{% block content %}
+<div class="feed-container">
+
+    <div class="feed-header">
+        <h1>🌌 API Post Feed</h1>
+        <p>Live posts fetched from external API</p>
+    </div>
+
+    {% for post in posts %}
+        <div class="feed-card">
+            <div class="feed-top">
+                <div class="author">
+                    <div class="avatar">
+                        {{ post.userId }}
+                    </div>
+                    <div>
+                        <span class="author-name">User {{ post.userId }}</span>
+                        <span class="post-id">Post #{{ post.id }}</span>
+                    </div>
+                </div>
+                <span class="badge">API DATA</span>
+            </div>
+
+            <h2 class="feed-title">
+                {{ post.title|capfirst }}
+            </h2>
+
+            <p class="feed-body">
+                {{ post.body }}
+            </p>
+
+            <div class="feed-actions">
+                <button class="btn-read">Read More</button>
+                <button class="btn-share">Share</button>
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2c2c54);
+    color: white;
+}
+
+/* Container */
+.feed-container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.feed-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.feed-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.feed-header p {
+    color: #bbb;
+}
+
+/* Card */
+.feed-card {
+    background: rgba(221, 62, 160, 0.651);
+    backdrop-filter: blur(15px);
+    padding: 25px 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    transition: 0.3s ease;
+    box-shadow: 0 8px 30px rgba(218, 14, 126, 0.548);
+}
+
+.feed-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Top Section */
+.feed-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.author-name {
+    display: block;
+    font-weight: 600;
+}
+
+.post-id {
+    font-size: 0.8rem;
+    color: #bbb;
+}
+
+.badge {
+    background: #00cec9;
+    color: rgb(226, 22, 124);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Title */
+.feed-title {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+}
+
+/* Body */
+.feed-body {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.feed-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-read,
+.btn-share {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-read {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: white;
+}
+
+.btn-read:hover {
+    opacity: 0.85;
+}
+
+.btn-share {
+    background: #2d3436;
+    color: white;
+    border: 1px solid #555;
+}
+
+.btn-share:hover {
+    background: #636e72;
+}
+
+/* Responsive */
+@media(max-width: 600px) {
+    .feed-title {
+        font-size: 1.3rem;
+    }
+
+    .feed-card {
+        padding: 20px;
+    }
+}
+</style>
+
+{% endblock %}

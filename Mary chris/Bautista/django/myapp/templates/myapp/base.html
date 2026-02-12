@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Website{% endblock %}</title>
+    <style>
+        /* Body background */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #f0f4f8, #d9e2ec); /* subtle gradient */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: #1f2937; /* dark slate gray */
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #e5e7eb; /* light gray */
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #3b82f6; /* blue hover */
+            color: white;
+        }
+
+        /* Active link styling */
+        .navbar a.active {
+            background-color: #10b981; /* teal green */
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Content area */
+        .content {
+            padding: 30px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        /* Responsive navbar */
+        @media screen and (max-width: 600px) {
+            .navbar a {
+                float: none;
+                width: 100%;
+                text-align: left;
+                padding-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="{% url 'homepage' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+        <a href="{% url 'about' %}" class="{% if request.path == '/about/' %}active{% endif %}">About</a>
+        <a href="{% url 'contact' %}" class="{% if request.path == '/contact/' %}active{% endif %}">Contact</a>
+    </div>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>
